@@ -14,12 +14,18 @@ function App() {
 function Rating() {
     return (
         <div>
-            <div>Star</div>
-            <div>Star</div>
-            <div>Star</div>
-            <div>Star</div>
-            <div>Star</div>
+            <Star/>
+            <Star/>
+            <Star/>
+            <Star/>
+            <Star/>
         </div>
+    )
+}
+
+function Star() {
+    return (
+        <div>Star</div>
     )
 }
 
