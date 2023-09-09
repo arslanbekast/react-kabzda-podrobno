@@ -2,23 +2,25 @@ import React from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <div>
-      This is APP component
-    </div>
-  );
+    return (
+        <div>
+            This is APP component
+            <Rating/>
+            <Accordion/>
+        </div>
+    );
 }
 
 function Rating() {
-  return (
-      <div>
-        <div>Star</div>
-        <div>Star</div>
-        <div>Star</div>
-        <div>Star</div>
-        <div>Star</div>
-      </div>
-  )
+    return (
+        <div>
+            <div>Star</div>
+            <div>Star</div>
+            <div>Star</div>
+            <div>Star</div>
+            <div>Star</div>
+        </div>
+    )
 }
 
 function Accordion() {
