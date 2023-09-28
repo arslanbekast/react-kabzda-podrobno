@@ -21,6 +21,6 @@ type StarPropsType = {
 
 function Star(props: StarPropsType) {
     return props.selected
-        ? <span onClick={props.changeRatingValue}><b>star</b> </span>
-        : <span onClick={props.changeRatingValue}>star </span>
+        ? <span onClick={props.changeRatingValue} style={{cursor:"pointer"}}><b>star</b> </span>
+        : <span onClick={props.changeRatingValue} style={{cursor:"pointer"}}>star </span>
 }
