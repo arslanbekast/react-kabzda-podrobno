@@ -3,15 +3,19 @@ import './App.css';
 import {Accordion} from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
 import OnOff from "./components/OnOff/OnOff";
+import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
+import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 
 function App() {
     return (
-        <div>
+        <div className={'App'}>
             {/*<PageTitle title={"This is APP component"}/>*/}
             {/*<PageTitle title={"My friends"}/>*/}
-            {/*<Rating value={3}/>*/}
-            <Accordion title={"Меню"}/>
-            <Accordion title={"Users"}/>
+            <Accordion title={"Users"} collapsed={false}/>
+
+            <UncontrolledAccordion title={"Меню"}/>
+            <UncontrolledRating />
+
             {/*<Rating value={0}/>*/}
             {/*<Rating value={1}/>*/}
             {/*<Rating value={2}/>*/}
