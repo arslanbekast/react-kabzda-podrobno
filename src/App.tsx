@@ -5,10 +5,13 @@ import {Rating, RatingValueType} from "./components/Rating/Rating";
 import OnOff from "./components/OnOff/OnOff";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
+import UncontrolledOnOff from "./components/UncontrolledOnOff/UncontrolledOnOff";
 
 function App() {
 
     const [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+    const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+    const [switchOn, setSwitchOn] = useState<boolean>(false);
 
     return (
         <div className={'App'}>
@@ -16,7 +19,9 @@ function App() {
 
             {/*<PageTitle title={"This is APP component"}/>*/}
             {/*<PageTitle title={"My friends"}/>*/}
-            <Accordion title={"Users"} collapsed={false}/>
+            <Accordion title={"Users"}
+                       collapsed={accordionCollapsed}
+                       onChange={() => setAccordionCollapsed(!accordionCollapsed)}/>
 
             <UncontrolledAccordion title={"Меню"}/>
             {/*<UncontrolledRating />*/}
@@ -29,9 +34,11 @@ function App() {
             {/*<Rating value={3}/>*/}
             {/*<Rating value={4}/>*/}
             {/*<Rating value={5}/>*/}
-            <OnOff />
-            <OnOff />
-            <OnOff />
+
+            {/*<OnOff on={switchOn} onChange={ setSwitchOn } />*/}
+
+            <UncontrolledOnOff onChange={setSwitchOn}/>{switchOn.toString()}
+            {/*<UncontrolledOnOff />*/}
         </div>
     );
 }
