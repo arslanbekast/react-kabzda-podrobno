@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 type PropsType = {
-    // on: boolean
+    onChange: (on: boolean) => void
 }
 
 const UncontrolledOnOff = (props: PropsType) => {
@@ -32,10 +32,19 @@ const UncontrolledOnOff = (props: PropsType) => {
         display: "inline-block"
     }
 
+    const onClicked = () => {
+        setOn(true)
+        props.onChange(true)
+    }
+    const offClicked = () => {
+        setOn(false)
+        props.onChange(false)
+    }
+
     return (
         <div>
-            <button style={onStyle} onClick={()=>setOn(true)}>On</button>
-            <button style={offStyle} onClick={()=>setOn(false)}>Off</button>
+            <button style={onStyle} onClick={onClicked}>On</button>
+            <button style={offStyle} onClick={offClicked}>Off</button>
             <div style={indicatorStyle}></div>
         </div>
     );
