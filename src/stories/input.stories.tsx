@@ -1,5 +1,5 @@
 import {action} from "@storybook/addon-actions"
-import React, {useRef, useState} from "react";
+import React, {ChangeEvent, useRef, useState} from "react";
 
 export default {
     title: 'input',
@@ -21,6 +21,25 @@ export const GetValueOfUncontrolledInputByButtonPress = () => {
         setValue(el.value)
     }
     return <><input ref={inputRef} /><button onClick={ save }>Save</button> - actual value {value}</>
+}
+
+export const ControlledInput = () => {
+
+    const [parentValue, setParentValue] = useState('')
+
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setParentValue(e.currentTarget.value)
+    }
+
+    return <input value={parentValue} onChange={onChangeHandler}/>
+}
+
+export const ControlledCheckbox = () => {
+
+}
+
+export const ControlledSelect = () => {
+
 }
 
 export const ControlledInputWithFixedValue = () => <input value='it-incubator.by' />
