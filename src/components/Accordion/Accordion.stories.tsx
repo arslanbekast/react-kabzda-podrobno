@@ -1,6 +1,6 @@
 // import type {Meta, StoryObj} from "@storybook/react";
 import {action} from "@storybook/addon-actions"
-import {Accordion} from "./Accordion";
+import {Accordion, ItemType} from "./Accordion";
 import React, {useState} from "react";
 
 // const meta: Meta<typeof  Accordion> = {
@@ -24,22 +24,36 @@ export default {
 // }
 
 const callback = action('accordion mode change event fired')
+const onClickCallback = action('Some item was clicked')
 
-export const CollapsedAccordion = () => {
+const itemsArr: ItemType[] = [
+    {title: 'Dimych', value: 1},
+    {title: 'Valera', value: 2},
+    {title: 'Artem', value: 3},
+    {title: 'Viktor', value: 4}
+]
+
+export const MenuCollapsedMode = () => {
     return <Accordion title={"Collapsed Accordion"}
                       collapsed={true}
-                      onChange={ callback }/>
+                      onChange={callback}
+                      items={[]}
+                      onClick={onClickCallback}/>
 }
 
-export const OpenedAccordion = () => {
+export const UsersUncollapsedMode = () => {
     return <Accordion title={"Opened Accordion"}
                       collapsed={false}
-                      onChange={ callback }/>
+                      onChange={callback}
+                      items={itemsArr}
+                      onClick={onClickCallback}/>
 }
 
 export const ModeChanging = () => {
     const [collapsed, setCollapsed] = useState(false)
     return <Accordion title={"Accordion"}
                       collapsed={collapsed}
-                      onChange={() => {setCollapsed(!collapsed)}}/>
+                      onChange={() => {setCollapsed(!collapsed)}}
+                      items={itemsArr}
+                      onClick={(id) => alert(`User with ID ${id} should be happy`)}/>
 }
