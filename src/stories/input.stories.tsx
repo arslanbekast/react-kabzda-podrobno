@@ -35,7 +35,13 @@ export const ControlledInput = () => {
 }
 
 export const ControlledCheckbox = () => {
+    const [checked, setChecked] = useState(true)
 
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setChecked(e.currentTarget.checked)
+    }
+
+    return <input type='checkbox' checked={checked} onChange={onChangeHandler}/>
 }
 
 export const ControlledSelect = () => {
