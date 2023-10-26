@@ -25,10 +25,12 @@ export const Select = (props: SelectPropsType) => {
     }, [props.value] )
 
     const toggleItems = () => setActive(!active)
+
     const onItemClick = (value: any) => {
         props.onChange(value);
         toggleItems()
     }
+
     const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
         e.preventDefault();
         if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
@@ -45,14 +47,12 @@ export const Select = (props: SelectPropsType) => {
             if (!selectedItem) {
                 props.onChange(props.items[0].value);
             }
-
         }
-
         if (e.key === 'Enter' || e.key === 'Escape') {
             setActive(false)
         }
-
     }
+
     return (
         <>
             <div className={s.select} onKeyDown={onKeyDown} tabIndex={0}>
