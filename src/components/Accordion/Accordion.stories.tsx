@@ -34,7 +34,7 @@ const itemsArr: ItemType[] = [
 ]
 
 export const MenuCollapsedMode = () => {
-    return <Accordion title={"Collapsed Accordion"}
+    return <Accordion title={"Menu"}
                       collapsed={true}
                       onChange={callback}
                       items={[]}
@@ -42,7 +42,7 @@ export const MenuCollapsedMode = () => {
 }
 
 export const UsersUncollapsedMode = () => {
-    return <Accordion title={"Opened Accordion"}
+    return <Accordion title={"Users"}
                       collapsed={false}
                       onChange={callback}
                       items={itemsArr}

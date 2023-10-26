@@ -1,11 +1,18 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Accordion} from "./components/Accordion/Accordion";
+import {Accordion, ItemType} from "./components/Accordion/Accordion";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import UncontrolledOnOff from "./components/UncontrolledOnOff/UncontrolledOnOff";
+
+const itemsArr: ItemType[] = [
+    {title: 'Dimych', value: 1},
+    {title: 'Valera', value: 2},
+    {title: 'Artem', value: 3},
+    {title: 'Viktor', value: 4}
+]
 
 function App() {
 
@@ -19,9 +26,10 @@ function App() {
 
             {/*<PageTitle title={"This is APP component"}/>*/}
             {/*<PageTitle title={"My friends"}/>*/}
-            <Accordion title={"Users"}
-                       collapsed={accordionCollapsed}
-                       onChange={() => setAccordionCollapsed(!accordionCollapsed)}/>
+            {/*<Accordion title={"Users"}*/}
+            {/*           collapsed={accordionCollapsed}*/}
+            {/*           onChange={() => setAccordionCollapsed(!accordionCollapsed)}*/}
+            {/*           items={itemsArr}/>*/}
 
             <UncontrolledAccordion title={"Меню"}/>
             {/*<UncontrolledRating />*/}
@@ -50,8 +58,6 @@ type PageTitlePropsType = {
 function PageTitle(props: PageTitlePropsType) {
     return <h1>{props.title}</h1>
 }
-
-
 
 
 export default App;
