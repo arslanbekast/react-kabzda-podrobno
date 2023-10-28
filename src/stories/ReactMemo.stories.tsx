@@ -13,7 +13,7 @@ const UsersSecret = (props: {users: Array<string>}) => {
         props.users.map((u, i) => <div key={i}>{u}</div>)
     }</div>
 }
-const Users = React.memo(UsersSecret)
+const Users = React.memo(UsersSecret) // React.memo возращает компонент, который будет перерисовываться только, если изменились props
 
 export const Example1 = () => {
     const [counter, setCounter] = useState(0)
