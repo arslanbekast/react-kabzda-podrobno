@@ -1,15 +1,21 @@
-import React, {useState} from "react";
+import React, {useReducer, useState} from "react";
+import {reducer} from "./reducer";
 
 type AccordionPropsType = {
     title: string
 }
 
+
+
+
+
 export function UncontrolledAccordion(props: AccordionPropsType) {
 
-    const [collapsed, setCollapsed] = useState(false)
+    // const [collapsed, setCollapsed] = useState(false)
+    const [collapsed, dispatch] = useReducer(reducer, false)
 
     const changeCollapsed = () => {
-        setCollapsed(!collapsed);
+        dispatch({type: "TOGGLE-COLLAPSED"});
     }
 
     return <div>
