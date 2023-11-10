@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from "react";
+import React, {useCallback, useMemo, useState} from "react";
 
 export default {
     title: 'useMemo demo'
@@ -70,3 +70,42 @@ export const HelpsToReactMemoExample = () => {
         </>
     )
 }
+
+
+
+export const LikeUseCallback = () => {
+    console.log('LikeUseCallback');
+    const [counter, setCounter] = useState(0);
+    const [books, setBooks] = useState(['React', 'TypeScript', 'JavaScript'])
+
+    // const filteredBooks = useMemo(() =>{
+    //     return books.filter(book=>book.toLowerCase().indexOf("a") > -1);
+    // }, [books])
+
+    const addBook = () => setBooks([...books, "HTML"])
+    const memoizedAddBook = useMemo(() => addBook, [books]) // Функцию можно мемоизировать и с использованием useMemo
+    const memoizedAddBook2 = useCallback(addBook, [books]) // разница в том, что при использ. useCallback не нужно оборачивать внутреннюю функцию
+
+    return (
+        <>
+            <button onClick={() => setCounter(counter+1)}>+</button>
+            {counter}
+            <Books books={books} addBook={memoizedAddBook2}/>
+        </>
+    )
+}
+
+type BooksSecretType = {
+    books: Array<string>
+    addBook: () => void
+}
+const BooksSecret = (props: BooksSecretType) => {
+    console.log('BooksSecret');
+    return <div>
+        <button onClick={props.addBook}>Add book</button>
+        {
+            props.books.map((book, i) => <div key={i}>{book}</div>)
+        }
+    </div>
+}
+const Books = React.memo(BooksSecret)
